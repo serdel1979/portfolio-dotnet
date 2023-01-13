@@ -1,12 +1,13 @@
-﻿@{
+﻿@model string;
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Sergio De Luca</h1>
+    <h1 class="display-4">Hola, soy @Model </h1>
     <h3>Desarrollador full stack</h3>
 
-    <img 
-        style="width:200px; margin: 2rem 0; border-radius: 30%"
+    <img class="foto_perfil"
         src="~/imagenes/perfil.jpg" alt="Foto de Sergio"/>
 </div>
