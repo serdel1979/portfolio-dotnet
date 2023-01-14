@@ -1,11 +1,11 @@
-﻿@model string;
+﻿@model Persona;
 
 @{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Hola, soy @Model </h1>
+    <p class="display-4"> Hola, soy @Model.Nombre @Model.Apellido y tengo @Model.Edad años de edad. </p>
     <h3>Desarrollador full stack</h3>
 
     <img class="foto_perfil"
