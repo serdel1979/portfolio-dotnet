@@ -2,16 +2,15 @@
 
 namespace Portfolio.Servicios
 {
-    public class RepositorioProyectos
+
+    public interface IRepositorioProyectos
+    {
+        List<Proyecto> ObtenerProyectos();
+    }
+    public class RepositorioProyectos: IRepositorioProyectos
     {
 
-        public List<Proyecto> proyectos { get; } 
-
-        public RepositorioProyectos()
-        {
-            this.proyectos = obtenerProyectos();
-        }
-        private List<Proyecto> obtenerProyectos()
+        public List<Proyecto> ObtenerProyectos()
         {
             return new List<Proyecto> { new Proyecto
             {
@@ -22,9 +21,9 @@ namespace Portfolio.Servicios
             },
             new Proyecto
             {
-                Titulo = "Buscador de país",
+                Titulo = "Como llegar",
                 Descripcion = "Aplicación desarrollada con Angular, busca la mejor ruta para llegar a un destino en menor tiempo, se utilizó la librería de https://www.mapbox.com/",
-                ImageURL = "/imagenes/buscador-de-pais.png",
+                ImageURL = "/imagenes/como-llegar.png",
                 Link = "https://como-llegar.netlify.app/"
             },
             new Proyecto
@@ -36,5 +35,6 @@ namespace Portfolio.Servicios
             }
             };
         }
+
     }
 }

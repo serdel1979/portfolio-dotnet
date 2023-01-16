@@ -9,17 +9,18 @@ namespace Portfolio.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly List<Proyecto> _proyectos;
+        private readonly IRepositorioProyectos repositorioProyectos;
 
-        public HomeController(ILogger<HomeController> logger, RepositorioProyectos repositorioProyectos)
+        public HomeController(ILogger<HomeController> logger, IRepositorioProyectos repositorioProyectos)
         {
             _logger = logger;
-            _proyectos = repositorioProyectos.proyectos;
+            this.repositorioProyectos = repositorioProyectos;
         }
 
         public IActionResult Index()
         {
-            var modelo = new HomeIndexViewModel() { Proyectos = this._proyectos };
+            var proyectos = repositorioProyectos.ObtenerProyectos();
+            var modelo = new HomeIndexViewModel() { Proyectos = proyectos };
             return View(modelo);
         }
 
