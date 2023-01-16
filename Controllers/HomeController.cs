@@ -11,7 +11,9 @@ namespace Portfolio.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly IRepositorioProyectos repositorioProyectos;
 
-        public HomeController(ILogger<HomeController> logger, IRepositorioProyectos repositorioProyectos)
+        public HomeController(ILogger<HomeController> logger, 
+            IRepositorioProyectos repositorioProyectos
+            )
         {
             _logger = logger;
             this.repositorioProyectos = repositorioProyectos;
@@ -20,7 +22,10 @@ namespace Portfolio.Controllers
         public IActionResult Index()
         {
             var proyectos = repositorioProyectos.ObtenerProyectos();
-            var modelo = new HomeIndexViewModel() { Proyectos = proyectos };
+
+            var modelo = new HomeIndexViewModel() { 
+                Proyectos = proyectos, 
+            };
             return View(modelo);
         }
 
